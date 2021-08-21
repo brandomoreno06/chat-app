@@ -1,23 +1,54 @@
-import logo from './logo.svg';
+import { useEffect } from 'react';
 import './App.css';
+import Header from './components/Header/Header';
+import MainScreen from './components/MainScreen/MainScreen';
+import { useStateValue } from './context/UserState';
+import getUserConversations from './utils/getUserConversations';
+import getConversationDetails from './utils/getConversationDetails';
+import getChatOtherUsers from './utils/getChatOtherUsers';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { getFriends, getFriendsDetails } from './utils/getFriends';
+
 
 function App() {
+  const [{ 
+    user,
+    conversations,
+    conversationDetails,
+    friends,
+  }, dispatch] = useStateValue();
+
+
+  useEffect(() => {
+    getUserConversations(user, dispatch);
+    getFriends(user, dispatch);
+  }, [])
+
+
+  useEffect(() => {
+    getConversationDetails(conversations, dispatch);
+  }, [conversations])
+
+
+  useEffect(() => {
+    getChatOtherUsers(user, conversationDetails, dispatch)
+  }, [conversationDetails])
+
+  useEffect(() => {
+    getFriendsDetails(friends, dispatch)
+  }, [friends])
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Switch>
+          <Route path="/messages/:id">
+            <Header />
+            <MainScreen />
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }

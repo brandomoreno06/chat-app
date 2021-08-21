@@ -1,0 +1,37 @@
+.chatScreen__header {
+    width: 100%;
+    z-index: 50;
+    position: absolute;
+    top: 0;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: black;
+    /* background-color: var(--themeColor); */
+    background-color: white;
+    border-bottom: 2px solid lightgray;
+}
+
+
+.chatScreen__headerLeft {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+
+.chatScreen__headerAvatar {
+    margin-right: 15px !important;
+}
+
+.chatScreen__headerRight {
+    margin-right: 25px;
+}
+
+.chatScreen__headerIcon {
+    margin-left: 15px;
+    margin-right: 15px;
+    font-size: 30px !important;
+    cursor: pointer;
+}

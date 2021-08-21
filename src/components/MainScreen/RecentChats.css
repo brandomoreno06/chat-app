@@ -1,0 +1,40 @@
+.recentChats {
+    width: 100%;
+    margin: 20px 0;
+    min-height: 30%;
+    max-height: 30%;
+}
+
+.recentChats__header {
+    padding-left: 20px;
+    border-bottom: 1px solid lightgray;
+}
+
+
+.recentChats__item {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.recentChats__item:hover {
+    background-color: white;
+}
+
+
+.recentChats__name {
+    width: max-content;
+    margin-left: 10px;
+    color: black;
+}
+
+.recentChats__avatar{
+    width: 25px !important;
+    height: 25px !important;
+}
+
+.recentChats > a {
+    text-decoration: none;
+}

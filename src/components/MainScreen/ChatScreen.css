@@ -1,0 +1,15 @@
+.chatScreenContainer {
+    flex: 0.5;
+}
+
+.chatScreen {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+    border-radius: 20px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    color: white;
+}

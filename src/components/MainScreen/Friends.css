@@ -1,0 +1,38 @@
+.friends{
+    min-height: 30%;
+}
+
+
+.friends__header {
+    padding-left: 20px;
+    border-bottom: 1px solid lightgray;
+}
+
+
+.friend__item {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.friend__item:hover {
+    background-color: white;
+}
+
+
+.friend__name {
+    width: max-content;
+    margin-left: 10px;
+    color: black;
+}
+
+.friend__avatar{
+    width: 25px !important;
+    height: 25px !important;
+}
+
+.friends > a {
+    text-decoration: none;
+}
