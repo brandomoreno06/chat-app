@@ -1,11 +1,10 @@
-import db from "./firebase";
+import db from "../firebase";
 
 
-const getConversationDetails = ( conversations, dispatch ) => {
-    const conversationsCollection = db.collection('conversations');
-    
-    if (conversations.length > 0) {
-        //find details of conversations included in array of conversations of current user object
+const getConversationDetails = ( user, conversations, dispatch ) => {
+    if (user && conversations.length > 0) {
+        //conversations included in array of conversations of current user object
+        const conversationsCollection = db.collection('conversations');
         const conversationsRef =  conversationsCollection.where("id", "in", conversations);
         conversationsRef.get()
         .then((querySnapshot) => {
@@ -17,8 +16,6 @@ const getConversationDetails = ( conversations, dispatch ) => {
             console.log(details)
         })
     }
-
- 
 }
 
 export default getConversationDetails;

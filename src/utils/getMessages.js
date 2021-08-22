@@ -1,10 +1,9 @@
-import db from "./firebase";
+import db from "../firebase";
 
 
-
-const getMessages = (params, conversations, dispatch) => {
+const getMessages = (user, params, conversations, dispatch) => {
     //verify first if params[id] is part of user's conversation
-    if (conversations.includes(params.id)) {
+    if (user && conversations.includes(params.id)) {
         const conversationMessagesRef = db.collection(`messages/${params.id}/conversation_messages`);
 
         conversationMessagesRef.orderBy('sentAt').onSnapshot((doc) => {

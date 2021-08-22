@@ -1,5 +1,6 @@
 const initialState = {
-    user: {id : "senderID"},
+    // user: {id : "senderID"},
+    user: null,
     conversations: [],
     conversationDetails: [],
     recentChats: [],

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './RecentChats.css';
 import { Avatar } from '@material-ui/core';
 import { useStateValue } from '../../context/UserState';
@@ -11,8 +11,9 @@ const RecentChats = (props) => {
     
     const chats = conversationDetails.map((detail) => {
         //find conversation member/s other than the current user
-        const otherUser = detail.members.find((member) => member !== user.id );
+        const otherUser = detail.members.find((member) => member !== user.uid );
         const otherUserDetail = recentChats.find((user) => user.uid === otherUser);
+        console.log({id: detail.id, otherUser: otherUserDetail})
         return {id: detail.id, otherUser: otherUserDetail}
     })
 

@@ -9,7 +9,6 @@ import { v4 } from 'uuid';
  
 const Friends = (props) => {
     const [{ conversationDetails, friendsDetails }, dispatch] = useStateValue();
-    const params = useParams();
     const search = props.search; //search filter
 
     const setCurrentConversation = (e) => {
@@ -21,6 +20,8 @@ const Friends = (props) => {
                 photoURL: e.currentTarget.photourl
             }
         })
+
+        sessionStorage.setItem('chat-app-currentConversation', e.currentTarget.getAttribute('name'))
     }
 
 

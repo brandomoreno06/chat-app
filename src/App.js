@@ -1,52 +1,57 @@
 import { useEffect } from 'react';
+import firebase from 'firebase';
 import './App.css';
 import Header from './components/Header/Header';
 import MainScreen from './components/MainScreen/MainScreen';
 import { useStateValue } from './context/UserState';
-import getUserConversations from './utils/getUserConversations';
-import getConversationDetails from './utils/getConversationDetails';
-import getChatOtherUsers from './utils/getChatOtherUsers';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { getFriends, getFriendsDetails } from './utils/getFriends';
+import Login from './components/Login/Login';
+
 
 
 function App() {
-  const [{ 
-    user,
-    conversations,
-    conversationDetails,
-    friends,
-  }, dispatch] = useStateValue();
+  const [{ user }, dispatch] = useStateValue();
 
 
   useEffect(() => {
-    getUserConversations(user, dispatch);
-    getFriends(user, dispatch);
+    const unsubscribe = firebase.auth().onAuthStateChanged((authUser) => {
+      if (authUser) {
+        dispatch({
+          type: "SET_USER",
+          user: authUser,
+        })
+      } else {
+        dispatch({
+          type: "SET_USER",
+          user: null,
+        })
+      }
+    })
+    
+    return () => { unsubscribe() }
   }, [])
-
-
-  useEffect(() => {
-    getConversationDetails(conversations, dispatch);
-  }, [conversations])
-
-
-  useEffect(() => {
-    getChatOtherUsers(user, conversationDetails, dispatch)
-  }, [conversationDetails])
-
-  useEffect(() => {
-    getFriendsDetails(friends, dispatch)
-  }, [friends])
 
 
   return (
     <div className="App">
       <Router>
         <Switch>
-          <Route path="/messages/:id">
-            <Header />
-            <MainScreen />
+        {user ?
+          <>
+            <Route path="/" exact>
+              <Header />
+              <MainScreen />
+            </Route>
+            <Route path="/messages/:id">
+              <Header />
+              <MainScreen />
+            </Route>
+          </>
+          :
+          <Route path="/login" exact >
+            <Login />
           </Route>
+        }
         </Switch>
       </Router>
     </div>

@@ -1,13 +1,12 @@
 import React, { useState } from 'react'
 import './Sidebar.css';
 import SearchIcon from '@material-ui/icons/Search';
-import RecentChats from '../MainScreen/RecentChats';
-import Friends from '../MainScreen/Friends';
+import RecentChats from './RecentChats';
+import Friends from './Friends';
  
  
  
-const Sidebar = (props) => {
-
+const Sidebar = () => {
     const [search, setSearch] = useState(""); //Search bar
     
     return (

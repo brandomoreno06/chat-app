@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef } from 'react'
 import './Messages.css';
 import { Avatar } from '@material-ui/core';
 import { useStateValue } from '../../context/UserState';
@@ -28,7 +28,7 @@ const Messages = (props) => {
             })
         }else {
             getCurrentConversation(user, conversations, conversationDetails, recentChats, params, dispatch);
-            getMessages(params, conversations, dispatch);
+            getMessages(user, params, conversations, dispatch);
         }
     }, [conversations, params.id])
 
@@ -36,12 +36,12 @@ const Messages = (props) => {
     return (
         <div className="messages" ref={messagesRef}>
             {currentMessages?.map((message, index) => (
-                <div className={message.sender == user.id ? "messageItem userMessage" : "messageItem"} key={index}>
+                <div className={message.sender == user.uid ? "messageItem userMessage" : "messageItem"} key={index}>
                     <Avatar className="messageItem__photo"/>
                     <div className="messageItem__container">
                         <div className="messageItem__header">
                             <h4 className="messageItem__name">
-                                {message.sender !== user.id ?
+                                {message.sender !== user.uid ?
                                 currentConversation?.displayName || sessionStorage.getItem('chat-app-currentConversation') : 
                                 message.sender}
                             </h4>
