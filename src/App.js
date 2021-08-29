@@ -12,7 +12,7 @@ import Login from './components/Login/Login';
 function App() {
   const [{ user }, dispatch] = useStateValue();
 
-
+  console.log(user)
   useEffect(() => {
     const unsubscribe = firebase.auth().onAuthStateChanged((authUser) => {
       if (authUser) {
@@ -48,7 +48,7 @@ function App() {
             </Route>
           </>
           :
-          <Route path="/login" exact >
+          <Route path="/" exact >
             <Login />
           </Route>
         }

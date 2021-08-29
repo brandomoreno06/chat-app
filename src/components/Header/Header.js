@@ -1,16 +1,26 @@
 import React from 'react'
 import './Header.css';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { Avatar } from '@material-ui/core';
 import { ExpandMoreOutlined } from '@material-ui/icons';
+import firebase from 'firebase';
+import { useStateValue } from '../../context/UserState';
  
  
  
 const Header = (props) => {
-    const user = {
-        email: "user@email.com"
+    const [{ user }] = useStateValue();
+    const history = useHistory();
+
+    const logout = (e) => {
+        e.preventDefault();
+        firebase.auth().signOut()
+        history.push("/")
     }
-    
+
+    console.log(user)
+
+
     return (
         <div className="header">
             <div className="header__left">
@@ -27,9 +37,9 @@ const Header = (props) => {
             <div className="header__right">
                 {user ?
                     <>
-                        <Avatar className="header__avatar header__icon" /*onClick={showSettings}*//>
-                        <h4>{user?.email.split('@').shift()}</h4>
-                        <ExpandMoreOutlined className="header__icon" /*onClick={showSettings}*//>
+                        <Avatar className="header__avatar header__icon" />
+                        <h4>{user?.displayName}</h4>
+                        <ExpandMoreOutlined className="header__icon" />
                     </> :
                     <>
                         <Link to="../login" className="headerOption">
@@ -41,12 +51,11 @@ const Header = (props) => {
                     </> 
                 }
                 
+                <button className="login__signIn" type="submit" onClick={logout}>Sign out</button>
             </div>
-            {/* { displaySettings && 
-                <div className="header__settings">
-                    <span onClick={logout}>Log out</span>
-                </div> 
-            } */}
+           
+
+            
         </div>
     )
 }

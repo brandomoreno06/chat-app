@@ -1,7 +1,7 @@
 .login {
     background-color: white;
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -16,6 +16,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    box-sizing: border-box;
     width: 100%;
     max-width: 400px;
     height: 100%;
@@ -70,34 +71,43 @@
 }
 
 
-.login__disclaimer {
+.form__disclaimer {
     font-size: 12px;
 }
 
-.login button {
+
+.login__signIn {
     width: 100%;
     height: 30px;
     box-sizing: border-box;
-}
-
-.login__signIn {
     border: 1px solid;
+    border-radius: 3px;
     border: none;
     cursor: pointer;
 }
 
-.login button:hover {
+.login__signIn:disabled{
+    cursor: not-allowed;
+}
+
+.login button:hover, .form__button:hover {
     opacity: 0.85;
 }
 
-.login button:active {
+.login button:active, .form__button:active {
     opacity: 1;
 }
 
 
 .button_createAccount {
-    position: absolute;
+    /* position: absolute; */
     bottom: 20px ;
     cursor: pointer;
 }
 
+.login_error {
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 15px;
+    padding: 0px 10px !important;
+}

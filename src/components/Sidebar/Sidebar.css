@@ -57,3 +57,8 @@
 .sidebar__searchInput:focus ~ .sidebar__searchIcon {
     color: var(--themeColor) !important;
 }
+
+
+.sidebar h4 {
+    font-weight: 500;
+}
