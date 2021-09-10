@@ -21,13 +21,12 @@ const Friends = (props) => {
                 photoURL: e.currentTarget.photourl
             }
         })
-
-        sessionStorage.setItem('chat-app-currentConversation', e.currentTarget.getAttribute('name'))
     }
 
+    const classes = props.className ? `${props.className} friends friends--smallScreen` : "friends friends--smallScreen"
 
     return (
-        <div className="friends friends--smallScreen">
+        <div className={classes}>
             {sortName(
                 props.appUsers.filter((user) => {
                     if (search?.trim() === "") return user;
@@ -54,6 +53,8 @@ const Friends = (props) => {
                 </Link>
             ))
             }
+
+            { props.appUsers.length == 0 && <span className="friends_none">You don't have any friends yet.</span>}
         </div>
     )
 }

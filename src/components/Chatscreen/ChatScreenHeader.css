@@ -34,3 +34,28 @@
     font-size: 30px !important;
     cursor: pointer;
 }
+
+
+@media (max-width: 768px) {
+
+    .chatScreen__header {
+        height: 50px;
+        padding: 0 10px !important;
+    }
+
+    .chatScreen__header h2 {
+        font-size: 16px !important;
+    }
+
+    .chatScreen__headerAvatar {
+        width: 25px !important;
+        height: 25px !important;
+    }
+
+    .chatScreen__headerIcon {
+        font-size: 20px !important;
+        color: gray;
+        margin: 0;
+        margin-left: 5px;
+    }
+}

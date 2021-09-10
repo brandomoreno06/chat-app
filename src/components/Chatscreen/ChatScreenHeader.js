@@ -16,14 +16,12 @@ const ChatScreenHeader = () => {
     useEffect(() => {
         getCurrentConversation(user, conversationDetails, recentChats, params, dispatch)
     }, [params.id])
-    
-    const conversationName = currentConversation?.displayName || sessionStorage.getItem('chat-app-currentConversation')
 
     return (
         <div className="chatScreen__header">
             <div className="chatScreen__headerLeft">
                 <Avatar className="chatScreen__headerAvatar" src={currentConversation?.photoURL} />
-                <h2>{conversationName}{params.id == "community" ? ' 🔥🔥🔥' : "" }</h2>
+                <h2>{params.id == "community" ? 'Community 🔥🔥🔥' : currentConversation?.displayName }</h2>
             </div>
             <div className="chatScreen__headerRight">
                 <CallIcon className="chatScreen__headerIcon" />

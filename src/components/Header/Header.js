@@ -6,19 +6,21 @@ import { ExpandMoreOutlined } from '@material-ui/icons';
 import firebase from 'firebase';
 import { useStateValue } from '../../context/UserState';
 import MenuIcon from '@material-ui/icons/Menu';
-import { useSideBarcontext } from '../../context/SidebarToggle';
- 
- 
+
  
 const Header = (props) => {
     const [{ user }] = useStateValue();
     const history = useHistory();
-    const [sidebarDisplay, toggleSidebar] = useSideBarcontext();
 
     const logout = (e) => {
         e.preventDefault();
         firebase.auth().signOut()
         history.push("/")
+    }
+
+    const toggleSidebar = () => {
+        const sidebar = document.querySelector(".sidebar__container");
+        sidebar.classList.toggle("sidebar__container--hide");
     }
 
     return (

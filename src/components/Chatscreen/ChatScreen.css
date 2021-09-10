@@ -13,6 +13,20 @@
     color: white;
 }
 
+.chatScreen__empty {
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: black;
+}
+
+.chatScreen__empty a {
+    margin-left: 14px;
+}
+
 @media (max-width: 768px) {
 
     .chatScreenContainer {
@@ -21,5 +35,9 @@
 
     .chatScreen{
         width: 100%;
+    }
+
+    .chatScreen__empty {
+        font-size: 14px !important;
     }
 }

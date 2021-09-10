@@ -29,7 +29,7 @@ background: #555;
     justify-content: flex-start;
     align-items: flex-end;
     margin-top: 15px;
-    max-width: 60%;
+    max-width: 75%;
     color: black;
 }
 
@@ -52,6 +52,7 @@ background: #555;
 .messageItem__photo {
     width: 30px !important;
     height: 30px !important;
+    margin-bottom: 15px;
 }
 
 .messageItem__container {
@@ -89,4 +90,33 @@ background: #555;
     font-size: 10px;
     color: lightgray;
     margin-left: 10px;
+}
+
+.userMessage > .messageItem__photo {
+    display: none! important;
+}
+
+
+
+@media (max-width: 768px) {
+    .messages {
+        padding: 20px 10px;
+    }
+ 
+    .messageItem__content {
+        font-size: 12px;
+        padding: 5px 12px 8px 12px;
+        background-color: #efefef;
+        border-radius: 20px;
+    }
+
+    .messageItem__name {
+        font-size: 10px !important;
+        font-weight: lighter !important;
+    }
+
+    .messageItem__photo {
+        width: 20px !important;
+        height: 20px !important;
+    }
 }

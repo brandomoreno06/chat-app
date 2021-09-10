@@ -43,3 +43,10 @@
 .sendButton {
     color: var(--themeColor);
 }
+
+
+@media (max-width: 768px) {
+    .createMessage__input {
+        font-size: 12px;
+    }
+}

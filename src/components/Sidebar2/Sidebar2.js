@@ -24,7 +24,7 @@ const Sidebar2 = (props) => {
                 <SearchIcon className="sidebar__searchIcon" />
             </div>
             <h2 className="friends__header">Discover People</h2>
-            <Friends search={search} appUsers={usersList} />
+            <Friends className="sidebar2__community" search={search} appUsers={usersList} />
         </div>
     </div>
     )

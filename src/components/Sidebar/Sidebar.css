@@ -77,6 +77,10 @@
     display: none;
 }
 
+.sidebar__community {
+    display: none !important;
+}
+
 
 @media (max-width: 768px) {
 
@@ -87,6 +91,7 @@
         left:0;
         width: 100%;
         min-height: 100% !important;
+        width: 0;
     }
 
     .sidebar {
@@ -108,7 +113,17 @@
         background-color: white;
     }
 
-    /* .sidebar_container--hide {
-        width: 0;
-    } */
+    .sidebar__community {
+        display: block !important;
+    }
+
+    .sidebar__container--hide {
+        width: 100%;
+        animation: width 0.5s;
+    }
+
+    @keyframes width {
+        0%   { width:0 }
+        100% { width: 100% }
+    }
 }

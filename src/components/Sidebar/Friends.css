@@ -38,12 +38,13 @@
     text-decoration: none;
 }
 
+.friends_none {
+    color: gray;
+    padding: 10px 20px;
+}
+
 
 @media (max-width: 768px) {
-    /* .friends--smallScreen {
-        display: none !important;
-    } */
-
     .friends {
         max-height: 50vh !important;
     }

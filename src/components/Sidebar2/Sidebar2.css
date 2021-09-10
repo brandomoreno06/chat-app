@@ -3,6 +3,10 @@
   justify-content: flex-end;
 }
 
+.sidebar2__community {
+  max-height: 100% !important;
+}
+
 @media (max-width: 768px) {
   .sidebar__container--2 {
     display: none !important;

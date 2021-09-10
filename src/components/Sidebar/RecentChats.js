@@ -17,9 +17,6 @@ const RecentChats = (props) => {
         return {id: detail.id, otherUser: otherUserDetail}
     })
 
-    const saveConversationID = (e) => { sessionStorage.setItem('chat-app-currentConversation', e.currentTarget.getAttribute('name'))}
-
-
     return (
         <div className="recentChats">
             <h2 className="recentChats__header">Recent Chats</h2>
@@ -30,7 +27,6 @@ const RecentChats = (props) => {
                     className="recentChats__item"
                     id="community"
                     name="Community"
-                    onClick={saveConversationID}
                 >
                     <Avatar className="recentChats__avatar"/>
                     <h4 className="recentChats__name">Community &#128293;&#128293;&#128293;</h4>
@@ -47,7 +43,6 @@ const RecentChats = (props) => {
                         className="recentChats__item"
                         id={chat?.id}
                         name={chat.otherUser?.displayName}
-                        onClick={saveConversationID}
                     >
                         <Avatar className="recentChats__avatar"/>
                         <h4 className="recentChats__name">{chat.otherUser?.displayName.split(" ")[0]}</h4>

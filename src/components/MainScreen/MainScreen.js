@@ -53,5 +53,5 @@ const MainScreen = (props) => {
  
  
  
-export default MainScreen   ;
+export default MainScreen;
  
