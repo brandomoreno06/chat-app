@@ -1,4 +1,12 @@
 .mainScreen {
     height: calc(100vh - var(--header-height));
     display: flex;
+    position: relative
+}
+
+
+@media (max-width: 768px) {
+    .mainScreen {
+        height: calc(100vh - var(--header-height-small));
+    }
 }

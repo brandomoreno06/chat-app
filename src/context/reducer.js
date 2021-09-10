@@ -6,7 +6,8 @@ const initialState = {
     currentMessages: [],
     currentConversation: null,
     friends: [],
-    friendsDetails: []
+    friendsDetails: [],
+    usersList: [],
 }
 
 
@@ -28,6 +29,8 @@ const reducer = (state, action) => {
             return {...state, friends: action.friends}
         case "GET_FRIENDS_DETAILS":
             return {...state, friendsDetails: action.friendsDetails}
+        case "GET_USERS_LIST":
+            return {...state, usersList: action.usersList}
         default: 
         return state;   
     }

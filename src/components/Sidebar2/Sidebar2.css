@@ -1,0 +1,10 @@
+.sidebar__container--2 {
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media (max-width: 768px) {
+  .sidebar__container--2 {
+    display: none !important;
+  }
+}

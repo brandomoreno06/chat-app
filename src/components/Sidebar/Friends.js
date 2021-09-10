@@ -4,11 +4,12 @@ import { Avatar } from '@material-ui/core';
 import { useStateValue } from '../../context/UserState';
 import { Link, useParams} from 'react-router-dom';
 import { v4 } from 'uuid';
+import sortName from '../../helpers/sort';
 
  
  
 const Friends = (props) => {
-    const [{ conversationDetails, friendsDetails }, dispatch] = useStateValue();
+    const [{ conversationDetails }, dispatch] = useStateValue();
     const search = props.search; //search filter
 
     const setCurrentConversation = (e) => {
@@ -26,13 +27,13 @@ const Friends = (props) => {
 
 
     return (
-        <div className="friends">
-            <h2 className="friends__header">Friends</h2>
-
-            {friendsDetails.filter((friend) => {
-                if (search?.trim() === "") return friend;
-                return friend?.displayName?.toLowerCase().includes(search?.trim().toLowerCase());
-            })
+        <div className="friends friends--smallScreen">
+            {sortName(
+                props.appUsers.filter((user) => {
+                    if (search?.trim() === "") return user;
+                    return user?.displayName?.toLowerCase().includes(search?.trim().toLowerCase());
+                })
+            )
             .map((friend) => (
                 //Link to conversation ID if friend is included on existing conversations
                 <Link 
@@ -51,7 +52,8 @@ const Friends = (props) => {
                         <h4 className="friend__name">{friend?.displayName}</h4>
                     </div>
                 </Link>
-            ))}
+            ))
+            }
         </div>
     )
 }

@@ -9,6 +9,7 @@ const getChatOtherUsers = ( user, conversationDetails, dispatch ) => {
         
         //check conversation members >> return NOT the current user
         const otherUsers = conversationDetails.map((detail) => {
+            if (detail.type == "community") return
             return detail.members.find((member) => member !== user.uid )
         })
 

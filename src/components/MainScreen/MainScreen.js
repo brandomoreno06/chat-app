@@ -7,6 +7,8 @@ import getUserConversations from '../../utils/getUserConversations';
 import getConversationDetails from '../../utils/getConversationDetails';
 import getChatOtherUsers from '../../utils/getChatOtherUsers';
 import { getFriends, getFriendsDetails } from '../../utils/getFriends';
+import Sidebar2 from '../Sidebar2/Sidebar2';
+import getAllUsers from '../../utils/getAllUsers';
 
 
 const MainScreen = (props) => {
@@ -21,6 +23,7 @@ const MainScreen = (props) => {
   useEffect(() => {
     getUserConversations(user, dispatch);
     getFriends(user, dispatch);
+    getAllUsers(user, dispatch);
   }, [])
 
 
@@ -35,7 +38,7 @@ const MainScreen = (props) => {
 
 
   useEffect(() => {
-    getFriendsDetails(user, friends, dispatch)
+    getFriendsDetails(user, friends, dispatch);
   }, [friends])
 
 
@@ -43,6 +46,7 @@ const MainScreen = (props) => {
     <div className="mainScreen">
       <Sidebar/>
       <ChatScreen />
+      <Sidebar2 />
     </div>
   )
 }

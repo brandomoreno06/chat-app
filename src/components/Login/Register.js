@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './Register.css';
 import { useHistory } from "react-router-dom";
 import firebase from 'firebase';
+import db from '../../firebase';
 
 
 
@@ -36,6 +37,25 @@ const Register = (props) => {
         firebase.auth()
         .createUserWithEmailAndPassword(email, password)
         .then((auth) => {
+            const usersRef = db.collection("users")
+            const usersPublicRef = db.collection("users_public")
+            usersRef.doc().set({
+                email: email,
+                uid: auth.user.uid,
+                displayName: `${firstName} ${lastName}`,
+                photoURL: "",
+                friends: firebase.firestore.FieldValue.arrayUnion(),
+                conversations: firebase.firestore.FieldValue.arrayUnion("community")
+            })
+
+            usersPublicRef.doc().set({
+                email: email,
+                uid: auth.user.uid,
+                displayName: `${firstName} ${lastName}`,
+            })
+            console.log(auth)
+        })
+        .then(() => {
             history.push("/");
         })
         .catch((error) => alert(error.message))

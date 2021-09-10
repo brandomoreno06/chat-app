@@ -24,6 +24,18 @@ const RecentChats = (props) => {
         <div className="recentChats">
             <h2 className="recentChats__header">Recent Chats</h2>
 
+            {/* Community chat */}
+            <Link to="/messages/community" key="community">
+                <div 
+                    className="recentChats__item"
+                    id="community"
+                    name="Community"
+                    onClick={saveConversationID}
+                >
+                    <Avatar className="recentChats__avatar"/>
+                    <h4 className="recentChats__name">Community &#128293;&#128293;&#128293;</h4>
+                </div>
+            </Link>
             {chats?.filter((chat) => {
                 if (search?.trim() === "") return chat;
                 return chat.otherUser?.displayName?.toLowerCase().includes(search?.trim().toLowerCase());
@@ -38,7 +50,7 @@ const RecentChats = (props) => {
                         onClick={saveConversationID}
                     >
                         <Avatar className="recentChats__avatar"/>
-                        <h4 className="recentChats__name">{chat.otherUser?.displayName}</h4>
+                        <h4 className="recentChats__name">{chat.otherUser?.displayName.split(" ")[0]}</h4>
                     </div>
                 </Link>
             ))}

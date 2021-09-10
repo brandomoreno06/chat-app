@@ -1,8 +1,8 @@
 .recentChats {
     width: 100%;
     margin: 20px 0;
-    min-height: 30%;
-    max-height: 30%;
+    max-height: 40%;
+    overflow-y: scroll;
 }
 
 .recentChats__header {
@@ -37,4 +37,27 @@
 
 .recentChats > a {
     text-decoration: none;
+}
+
+
+@media (max-width: 768px) {
+    .recentChats {
+        max-height: 50vh !important;
+    }
+
+    .recentChats__item {
+        font-size: 14px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
+    .recentChats__header {
+        border-top: 1px solid lightgray;
+        margin-bottom: 15px;
+    }
+
+    .recentChats__avatar{
+        width: 20px !important;
+        height: 20px !important;
+    }
 }

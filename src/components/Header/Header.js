@@ -5,12 +5,15 @@ import { Avatar } from '@material-ui/core';
 import { ExpandMoreOutlined } from '@material-ui/icons';
 import firebase from 'firebase';
 import { useStateValue } from '../../context/UserState';
+import MenuIcon from '@material-ui/icons/Menu';
+import { useSideBarcontext } from '../../context/SidebarToggle';
  
  
  
 const Header = (props) => {
     const [{ user }] = useStateValue();
     const history = useHistory();
+    const [sidebarDisplay, toggleSidebar] = useSideBarcontext();
 
     const logout = (e) => {
         e.preventDefault();
@@ -18,17 +21,10 @@ const Header = (props) => {
         history.push("/")
     }
 
-    console.log(user)
-
-
     return (
         <div className="header">
             <div className="header__left">
-                <img
-                    className="header__logo"
-                    src=""
-                    alt=""
-                />
+                <MenuIcon className="header__menuIcon" onClick={toggleSidebar}/>
                 <h2>Chat App</h2>
             </div>
             <div className="header__middle">

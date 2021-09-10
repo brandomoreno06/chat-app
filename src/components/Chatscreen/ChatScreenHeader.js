@@ -23,7 +23,7 @@ const ChatScreenHeader = () => {
         <div className="chatScreen__header">
             <div className="chatScreen__headerLeft">
                 <Avatar className="chatScreen__headerAvatar" src={currentConversation?.photoURL} />
-                <h2>{conversationName}</h2>
+                <h2>{conversationName}{params.id == "community" ? ' 🔥🔥🔥' : "" }</h2>
             </div>
             <div className="chatScreen__headerRight">
                 <CallIcon className="chatScreen__headerIcon" />

@@ -23,11 +23,12 @@ const CreateMessage = (props) => {
     }
 
     const sendMessage = () => {
+        //create new conversation if there is no existing conversation
         if (!conversations.includes(params.id)) {
             createConversation(user, currentConversation, params);
         }
 
-        //messages collection
+        //add message document in messages collection
         const conversationMessagesRef = db.collection(`messages/${params.id}/conversation_messages`);
         conversationMessagesRef.doc().set({
             content: message,
@@ -37,7 +38,7 @@ const CreateMessage = (props) => {
             console.log('message sent')
         })
 
-        //conversations document in collection
+        //update conversation document in conversations collection
         db.collection('conversations').doc(params.id).update({
             updatedAt: firebase.firestore.FieldValue.serverTimestamp(),
         }) 

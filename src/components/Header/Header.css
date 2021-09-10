@@ -21,6 +21,11 @@
     text-transform: uppercase;
 }
 
+.header__menuIcon {
+    display: none !important;
+    margin-right: 15px;
+}
+
 .header__logo {
     width: 30px;
     height: 30px;
@@ -96,4 +101,25 @@
 .header__settings > span:hover {
     color: white;
     background-color: var(--themeColor);
+}
+
+
+
+@media (max-width: 768px) {
+    .header {
+        height: var(--header-height-small);
+    }
+
+    .header__menuIcon {
+        display: block !important;
+    }
+
+    .header__left h2 {
+        font-size: 18px;
+    }
+
+    .header__right {
+        display: none;
+    }
+
 }

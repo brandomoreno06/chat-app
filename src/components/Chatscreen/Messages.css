@@ -84,3 +84,9 @@ background: #555;
     margin-bottom: 2px;
     color: lightgray;
 }
+
+.message_dateTime {
+    font-size: 10px;
+    color: lightgray;
+    margin-left: 10px;
+}

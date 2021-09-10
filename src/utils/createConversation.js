@@ -2,7 +2,7 @@ import db from "../firebase";
 import firebase from "firebase";
 
 const createConversation = (user, receiver, params) => {
-    //Update user's and receiver's conversation list if there is no existing conversation (new converrsation)
+    //Update user's and receiver's conversation list if there is no existing conversation (new conversation)
     const usersCollection = db.collection('users');
     const userRef = usersCollection.where("uid", "in", [user.uid, receiver.uid]);
     userRef.get().then((querySnapshot) => {

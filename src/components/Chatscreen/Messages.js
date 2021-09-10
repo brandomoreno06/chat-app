@@ -41,13 +41,14 @@ const Messages = (props) => {
                     <div className="messageItem__container">
                         <div className="messageItem__header">
                             <h4 className="messageItem__name">
-                                {message.sender !== user.uid ?
-                                currentConversation?.displayName || sessionStorage.getItem('chat-app-currentConversation') : 
-                                message.sender}
+                                {   params.id == "community" ? message.sender : (message.sender !== user.uid ?
+                                    currentConversation?.displayName || sessionStorage.getItem('chat-app-currentConversation') :
+                                    message.sender)
+                                }
                             </h4>
-                            {/* <span>{new Date(message.timestamp?.toDate()).toLocaleString()}</span> */}
                         </div>
                         <div className="messageItem__content">{parse(message.content)}</div>
+                        <span className="message_dateTime">{new Date(message.sentAt?.toDate()).toLocaleString()}</span>
                     </div>
                 </div>
             ))}

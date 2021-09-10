@@ -8,7 +8,6 @@
     justify-content: space-between;
     align-items: center;
     color: black;
-    /* background-color: var(--themeColor); */
     background-color: white;
     border-bottom: 2px solid lightgray;
 }

@@ -1,5 +1,6 @@
 .friends{
-    min-height: 30%;
+    max-height: 40%;
+    overflow-y: scroll;
 }
 
 
@@ -35,4 +36,25 @@
 
 .friends > a {
     text-decoration: none;
+}
+
+
+@media (max-width: 768px) {
+    /* .friends--smallScreen {
+        display: none !important;
+    } */
+
+    .friends {
+        max-height: 50vh !important;
+    }
+
+    .friend__item {
+        font-size: 14px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
+    .friends__header {
+        border-top: 1px solid lightgray;
+    }
 }
