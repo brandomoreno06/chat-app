@@ -13,7 +13,7 @@ const getChatOtherUsers = ( user, conversationDetails, dispatch ) => {
             return detail.members.find((member) => member !== user.uid )
         })
 
-        if(otherUsers.length > 0) {
+        if(otherUsers?.length > 0) {
             //find user details where UID's are in the "otherUsers"
             const otherUsersRef =  users_publicCollection.where("uid", "in", otherUsers);
             otherUsersRef.get()

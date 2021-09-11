@@ -6,7 +6,12 @@ const getAllUsers = ( user, dispatch ) => {
     
     usersPublicRef.get()
     .then((querySnapshot) => {
-        const usersList = querySnapshot.docs.map((user) => { return user.data() })
+        const usersList = querySnapshot.docs.map((user) => { 
+          return user.data() 
+        }).filter((filterUser) => { 
+          return filterUser.uid !== user.uid
+        })
+
         dispatch({
             type: "GET_USERS_LIST",
             usersList: usersList

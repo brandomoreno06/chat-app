@@ -16,14 +16,6 @@ const Register = (props) => {
         passwordConfirm: ""
     });
 
-    // const [passwordValidity, setPasswordValidity] = useState({
-    //     capital: false,
-    //     lowercase: false,
-    //     number: false,
-    //     minimum: false,
-    // })
-
-
     const {firstName, lastName, email, password, passwordConfirm} = input;
     const inputHandler = (e) => {
         const name = e.target.name;
@@ -53,7 +45,11 @@ const Register = (props) => {
                 uid: auth.user.uid,
                 displayName: `${firstName} ${lastName}`,
             })
-            console.log(auth)
+
+            auth.user.updateProfile({
+                displayName: `${firstName} ${lastName}`,
+            })
+            
         })
         .then(() => {
             history.push("/");

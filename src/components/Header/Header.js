@@ -1,22 +1,14 @@
 import React from 'react'
 import './Header.css';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Avatar } from '@material-ui/core';
-import { ExpandMoreOutlined } from '@material-ui/icons';
-import firebase from 'firebase';
 import { useStateValue } from '../../context/UserState';
 import MenuIcon from '@material-ui/icons/Menu';
+import ProfileMenu from './ProfileMenu';
 
  
 const Header = (props) => {
     const [{ user }] = useStateValue();
-    const history = useHistory();
-
-    const logout = (e) => {
-        e.preventDefault();
-        firebase.auth().signOut()
-        history.push("/")
-    }
 
     const toggleSidebar = () => {
         const sidebar = document.querySelector(".sidebar__container");
@@ -37,7 +29,7 @@ const Header = (props) => {
                     <>
                         <Avatar className="header__avatar header__icon" />
                         <h4>{user?.displayName}</h4>
-                        <ExpandMoreOutlined className="header__icon" />
+                        <ProfileMenu />
                     </> :
                     <>
                         <Link to="../login" className="headerOption">
@@ -48,12 +40,7 @@ const Header = (props) => {
                         </Link>
                     </> 
                 }
-                
-                <button className="login__signIn" type="submit" onClick={logout}>Sign out</button>
             </div>
-           
-
-            
         </div>
     )
 }

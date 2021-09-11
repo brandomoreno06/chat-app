@@ -3,6 +3,7 @@ import './RecentChats.css';
 import { Avatar } from '@material-ui/core';
 import { useStateValue } from '../../context/UserState';
 import { Link} from 'react-router-dom';
+import { toggleSidebar } from '../../helpers/toggleSidebar';
  
  
 const RecentChats = (props) => {
@@ -17,6 +18,8 @@ const RecentChats = (props) => {
         return {id: detail.id, otherUser: otherUserDetail}
     })
 
+    toggleSidebar();
+
     return (
         <div className="recentChats">
             <h2 className="recentChats__header">Recent Chats</h2>
@@ -27,6 +30,7 @@ const RecentChats = (props) => {
                     className="recentChats__item"
                     id="community"
                     name="Community"
+                    onClick={toggleSidebar}
                 >
                     <Avatar className="recentChats__avatar"/>
                     <h4 className="recentChats__name">Community &#128293;&#128293;&#128293;</h4>
@@ -43,6 +47,7 @@ const RecentChats = (props) => {
                         className="recentChats__item"
                         id={chat?.id}
                         name={chat.otherUser?.displayName}
+                        onClick={toggleSidebar}
                     >
                         <Avatar className="recentChats__avatar"/>
                         <h4 className="recentChats__name">{chat.otherUser?.displayName.split(" ")[0]}</h4>

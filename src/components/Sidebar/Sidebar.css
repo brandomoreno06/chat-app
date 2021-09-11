@@ -91,7 +91,7 @@
         left:0;
         width: 100%;
         min-height: 100% !important;
-        width: 0;
+        margin-left: -100%;
     }
 
     .sidebar {
@@ -99,6 +99,7 @@
         max-width: 100%;
         min-height: 100vh !important;
         overflow-y: scroll;
+        box-shadow: none;
     }
 
     .sidebar h2 {
@@ -119,11 +120,13 @@
 
     .sidebar__container--hide {
         width: 100%;
-        animation: width 0.5s;
+        /* animation: width 0.5s; */
+        margin-left: 0;
+        animation: margin-left 0.5s;
     }
 
-    @keyframes width {
-        0%   { width:0 }
-        100% { width: 100% }
+    @keyframes margin-left {
+        0%   { margin-left:-110% }
+        100% { margin-left: 0 }
     }
 }

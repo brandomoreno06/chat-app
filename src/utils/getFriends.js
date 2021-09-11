@@ -20,7 +20,7 @@ const getFriends = (user, dispatch) => {
 
 
 const getFriendsDetails = (user, friends, dispatch) =>{
-    if (user && friends.length > 0) {
+    if (user && friends?.length > 0) {
         const users_publicCollection = db.collection('users_public');
         const usersRef =  users_publicCollection.where("uid", "in", friends);
     

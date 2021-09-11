@@ -2,9 +2,10 @@ import React from 'react'
 import './Friends.css';
 import { Avatar } from '@material-ui/core';
 import { useStateValue } from '../../context/UserState';
-import { Link, useParams} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { v4 } from 'uuid';
 import sortName from '../../helpers/sort';
+import { toggleSidebar } from '../../helpers/toggleSidebar';
 
  
  
@@ -21,6 +22,7 @@ const Friends = (props) => {
                 photoURL: e.currentTarget.photourl
             }
         })
+        toggleSidebar()
     }
 
     const classes = props.className ? `${props.className} friends friends--smallScreen` : "friends friends--smallScreen"
