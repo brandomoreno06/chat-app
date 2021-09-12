@@ -7,7 +7,8 @@
 2. User is able to login using firebase authentication.
 3. User is able to update his display name.
 4. User is able to chat anonymously or find new friends within the community group conversation.
-5. User is able to send and receive direct messages to/from other users.
+5. User is able to search for other users.
+6. User is able to send and receive direct messages to/from other users
 
 ##
 ![image](https://user-images.githubusercontent.com/81558435/132973888-b562a0ab-4dfa-4bf8-967a-74857cfe642e.png)
