@@ -31,7 +31,7 @@
 ![image](https://user-images.githubusercontent.com/81558435/132974410-acf0370a-043f-4133-86de-41234cd5b9e4.png)
 
 
-## App can be used for mobile screen
+## App can be used with mobile screen
 ![image](https://user-images.githubusercontent.com/81558435/132976461-14277be8-8814-40d4-90d3-051678f723a9.png)
 ![image](https://user-images.githubusercontent.com/81558435/132976510-32e11efb-a632-4d22-8094-7834aa339509.png)
 
