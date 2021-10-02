@@ -16,7 +16,6 @@ const getAllUsers = ( user, dispatch ) => {
             type: "GET_USERS_LIST",
             usersList: usersList
         })
-        console.log(usersList)
     })
   }
 }

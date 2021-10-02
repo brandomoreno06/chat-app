@@ -12,14 +12,18 @@ const Header = (props) => {
 
     const toggleSidebar = () => {
         const sidebar = document.querySelector(".sidebar__container");
-        sidebar.classList.toggle("sidebar__container--hide");
+        sidebar?.classList.toggle("sidebar__container--hide");
     }
 
     return (
         <div className="header">
             <div className="header__left">
-                <MenuIcon className="header__menuIcon" onClick={toggleSidebar}/>
-                <h2>Chat App</h2>
+                { user &&
+                    <MenuIcon className="header__menuIcon" onClick={toggleSidebar}/>
+                }
+                    <Link to="/" className="headerOption" >
+                        <h2>Chit Chat</h2>
+                    </Link>
             </div>
             <div className="header__middle">
                 
@@ -32,10 +36,10 @@ const Header = (props) => {
                         <ProfileMenu />
                     </> :
                     <>
-                        <Link to="../login" className="headerOption">
-                        <span>Log in</span>
+                        <Link to="/login" className="headerOption">
+                            <span>Log in</span>
                         </Link>
-                        <Link to="./login" className="headerOption">
+                        <Link to="/login" className="headerOption">
                             <span className="headerOption__signup">Sign up</span>
                         </Link>
                     </> 

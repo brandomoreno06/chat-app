@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 import getMessages from '../../utils/getMessages';
 import getCurrentConversation from '../../utils/getCurrentConversation';
 import parse from 'html-react-parser';
- 
+var CryptoJS = require("crypto-js");
 
  
 const Messages = (props) => {
@@ -42,12 +42,15 @@ const Messages = (props) => {
                         <div className="messageItem__header">
                             <h4 className="messageItem__name">
                                 {   params.id == "community" ? message.sender : (message.sender !== user.uid ?
-                                    currentConversation?.displayName || sessionStorage.getItem('chat-app-currentConversation') :
+                                    currentConversation?.displayName :
                                     message.sender)
                                 }
                             </h4>
                         </div>
-                        <div className="messageItem__content">{parse(message.content)}</div>
+                        <div className="messageItem__content">
+                            { new Date(message.sentAt?.toDate()) < new Date("2021-10-01") ? parse(message.content) :
+                            parse(CryptoJS.AES.decrypt(message.content, 'chit-chat-app-react-project-2021').toString(CryptoJS.enc.Utf8)) }
+                        </div>
                         <span className="message_dateTime">{new Date(message.sentAt?.toDate()).toLocaleString()}</span>
                     </div>
                 </div>

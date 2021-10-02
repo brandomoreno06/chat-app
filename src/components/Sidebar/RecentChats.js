@@ -14,11 +14,9 @@ const RecentChats = (props) => {
         //find conversation member/s other than the current user
         const otherUser = detail.members.find((member) => member !== user.uid );
         const otherUserDetail = recentChats.find((user) => user.uid === otherUser);
-        console.log({id: detail.id, otherUser: otherUserDetail})
+
         return {id: detail.id, otherUser: otherUserDetail}
     })
-
-    toggleSidebar();
 
     return (
         <div className="recentChats">

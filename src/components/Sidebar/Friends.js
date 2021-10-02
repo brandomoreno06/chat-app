@@ -36,7 +36,7 @@ const Friends = (props) => {
                 })
             )
             .map((friend) => (
-                //Link to conversation ID if friend is included on existing conversations
+                //Link to conversation ID if friend is included on existing. Otherwise, generate new uid.
                 <Link 
                     to={`/messages/${conversationDetails.find(conversation => {
                         return conversation.members?.includes(friend.uid)})?.id || v4()}`}

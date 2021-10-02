@@ -4,8 +4,6 @@ import { Link, useHistory } from "react-router-dom";
 import firebase from 'firebase';
 import LockIcon from '@material-ui/icons/Lock';
 import Register from './Register';
-import { Snackbar } from '@material-ui/core';
-import { AddAlert } from '@material-ui/icons';
 import { Alert } from '@material-ui/lab';
 
 
@@ -18,8 +16,17 @@ const Login = () => {
     const submitButtonRef = useRef();
     const [register, setRegister] = useState(false);
 
-    const emailHandler = (e) => { setEmail(e.target.value) }
-    const passwordHandler = (e) => { setPassword(e.target.value) }
+    const setDisplayError = () => {
+        if (loginError == true) { setLoginError(false) }
+    }
+    const emailHandler = (e) => { 
+        setEmail(e.target.value);
+        setDisplayError();
+    }
+    const passwordHandler = (e) => {
+        setPassword(e.target.value);
+        setDisplayError();
+    }
 
     const login = (e) => {
         e.preventDefault();
@@ -30,7 +37,6 @@ const Login = () => {
             history.push("/");
         })
         .catch((error) => {
-            // alert(error.message)
             setLoginError(true)
             submitButtonRef.current.disabled = false;
         })

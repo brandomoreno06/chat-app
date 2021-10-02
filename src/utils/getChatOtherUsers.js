@@ -23,7 +23,6 @@ const getChatOtherUsers = ( user, conversationDetails, dispatch ) => {
                     type: "GET_RECENT_CHATS",
                     recentChats: otherUsersList,
                 })
-                console.log(otherUsersList)
             })
         }
     }
