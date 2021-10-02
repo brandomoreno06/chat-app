@@ -1,5 +1,6 @@
 # CHIT CHAT (Messaging App)
-## Built with React, Material UI, Firebase
+### Built with: React JS, Material UI, Firebase
+##### With AES encryption via [Crypto JS](https://www.npmjs.com/package/crypto-js)
 
 ### Features
 
