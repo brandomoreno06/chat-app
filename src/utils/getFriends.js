@@ -31,7 +31,6 @@ const getFriendsDetails = (user, friends, dispatch) =>{
                 type: "GET_FRIENDS_DETAILS",
                 friendsDetails: friendsList,
             })
-            console.log(friendsList)
         })
     }
 }

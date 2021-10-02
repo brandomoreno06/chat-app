@@ -6,7 +6,7 @@ import { useStateValue } from '../../context/UserState';
 import firebase from 'firebase';
 import { useParams } from 'react-router-dom';
 import createConversation from '../../utils/createConversation';
-
+var CryptoJS = require("crypto-js");
  
 
 const CreateMessage = (props) => {
@@ -31,7 +31,7 @@ const CreateMessage = (props) => {
         //add message document in messages collection
         const conversationMessagesRef = db.collection(`messages/${params.id}/conversation_messages`);
         conversationMessagesRef.doc().set({
-            content: message,
+            content: CryptoJS.AES.encrypt(message, 'chit-chat-app-react-project-2021').toString(),
             sender: user.uid,
             sentAt: firebase.firestore.FieldValue.serverTimestamp()
         }).then(() => {

@@ -13,7 +13,6 @@ const getConversationDetails = ( user, conversations, dispatch ) => {
                 type: "GET_CONVERSATION_DETAILS",
                 conversationDetails: details,
             })
-            console.log(details)
         })
     }
 }

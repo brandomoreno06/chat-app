@@ -1,12 +1,14 @@
 import React, { useState } from 'react'
 import './Register.css';
 import { useHistory } from "react-router-dom";
+import { Alert } from '@material-ui/lab';
 import firebase from 'firebase';
 import db from '../../firebase';
 
 
 
 const Register = (props) => {
+    const [registrationError, setRegistratonError] = useState(false)
     const history = useHistory();
     const [input, setInput] = useState({
         firstName: "",
@@ -20,11 +22,15 @@ const Register = (props) => {
     const inputHandler = (e) => {
         const name = e.target.name;
         setInput({...input, [name]: e.target.value})
-        console.log(input)
+        if (registrationError == true) { setRegistratonError(false) }
     }
 
     const register = (e) => {
         e.preventDefault();
+
+        if (password !== passwordConfirm) {
+            return setRegistratonError(true)
+        }
 
         firebase.auth()
         .createUserWithEmailAndPassword(email, password)
@@ -63,6 +69,8 @@ const Register = (props) => {
     return (
         <div className="register__container">
             <h1>Create an account</h1>
+            { registrationError && <Alert severity="error" className="login_error">Passwords do not match!</Alert> }
+
             <form className="register__form account__form">
                 <div className="form__nameField">
                     <div>

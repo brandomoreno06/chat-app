@@ -53,11 +53,12 @@
 .headerOption__signup {
     border-bottom: 1px solid gray;
     border-left: 1px solid gray;
-    background-color: #ff7324;
+    background-color: white;
     padding: 5px 10px;
     text-transform: uppercase;
     font-size: 12px;
     font-weight: 700;
+    color: black;
 }
 
 .headerOption:hover {
@@ -65,7 +66,7 @@
 }
 
 .headerOption__signup:hover {
-    background-color: #fa6109;
+    opacity: 0.9;
 }
 
 

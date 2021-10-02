@@ -8,6 +8,11 @@
     justify-content: center;
     background-color: var(--themeColor);
     color: white;
+    overflow-y: scroll;
+}
+
+.login::-webkit-scrollbar {
+    width: 0;
 }
 
 
@@ -17,11 +22,10 @@
     justify-content: flex-start;
     align-items: center;
     box-sizing: border-box;
-    width: 100%;
     max-width: 400px;
     height: 100%;
     max-height: 400px;
-    padding: 20px;
+    padding: 10px;
     background-color: var(--themeColor);
     position: relative;
 }
@@ -100,7 +104,6 @@
 
 
 .button_createAccount {
-    /* position: absolute; */
     bottom: 20px ;
     cursor: pointer;
 }

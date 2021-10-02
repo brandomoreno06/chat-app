@@ -12,7 +12,6 @@ const getMessages = (user, params, conversations, dispatch) => {
                 type: "GET_CURRENT_MESSAGES",
                 currentMessages: messages,
             })
-            console.log(messages)
         })
     }
 }
